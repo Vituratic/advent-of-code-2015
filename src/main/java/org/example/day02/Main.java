@@ -18,14 +18,19 @@ class Main {
         List<String> input = Files.readAllLines(path);
 
         WrappingPaperCalculator wrappingPaperCalculator = new WrappingPaperCalculator();
+        RibbonCalculator ribbonCalculator = new RibbonCalculator();
         int totalRequiredAmountOfSquareFeet = 0;
+        int totalRequiredAmountOfRibbon = 0;
 
         for (String line : input) {
             List<Integer> numbers = Arrays.stream(line.split("x")).map(Integer::parseInt).toList();
             int requiredAmountOfSquareFeet = wrappingPaperCalculator.getRequiredAmountOfSquareFeet(numbers.get(0), numbers.get(1), numbers.get(2));
+            int requiredAmountOfRibbon = ribbonCalculator.getRequiredRibbonLength(numbers.get(0), numbers.get(1), numbers.get(2));
             totalRequiredAmountOfSquareFeet += requiredAmountOfSquareFeet;
+            totalRequiredAmountOfRibbon += requiredAmountOfRibbon;
         }
 
         log.info("Total required amount of square feet: {}", totalRequiredAmountOfSquareFeet);
+        log.info("Total required amount of ribbon: {}", totalRequiredAmountOfRibbon);
     }
 }
