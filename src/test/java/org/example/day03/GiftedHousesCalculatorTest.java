@@ -31,4 +31,19 @@ class GiftedHousesCalculatorTest {
                 Arguments.of("^v^v^v^v^v", 2)
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("provideDataForGetHousesWithAtLeastOnePresentWithRoboSanta")
+    void testGetHousesWithAtLeastOnePresentWithRoboSanta(String input, int expectedAmount) {
+        int actualAmount = giftedHousesCalculator.getHousesWithAtLeastOnePresentWithRoboSanta(input);
+        Assertions.assertEquals(expectedAmount, actualAmount);
+    }
+
+    private static Stream<Arguments> provideDataForGetHousesWithAtLeastOnePresentWithRoboSanta() {
+        return Stream.of(
+                Arguments.of("^v", 3),
+                Arguments.of("^>v<", 3),
+                Arguments.of("^v^v^v^v^v", 11)
+        );
+    }
 }

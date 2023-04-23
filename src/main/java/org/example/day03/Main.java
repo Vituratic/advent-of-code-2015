@@ -11,5 +11,8 @@ class Main {
         GiftedHousesCalculator giftedHousesCalculator = new GiftedHousesCalculator();
         int housesWithAtLeastOnePresent = giftedHousesCalculator.getHousesWithAtLeastOnePresent(input);
         log.info("Houses with at least one present: {}", housesWithAtLeastOnePresent);
+
+        int housesWithAtLeastOnePresentWithRoboSanta = giftedHousesCalculator.getHousesWithAtLeastOnePresentWithRoboSanta(input);
+        log.info("Houses with at least one present with the help of Robo-Santa: {}", housesWithAtLeastOnePresentWithRoboSanta);
     }
 }
