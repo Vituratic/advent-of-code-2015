@@ -1,21 +1,16 @@
 package org.example.day02;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.util.ResourceReader;
 
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
 @Slf4j
 class Main {
 
-    public static void main(String[] args) throws Exception {
-        URL resourceUrl = Main.class.getClassLoader().getResource("org/example/day02/input.txt");
-        Path path = Paths.get(resourceUrl.toURI());
-        List<String> input = Files.readAllLines(path);
+    public static void main(String[] args) {
+        List<String> input = ResourceReader.readAllLinesFromResource("org/example/day02/input.txt");
 
         WrappingPaperCalculator wrappingPaperCalculator = new WrappingPaperCalculator();
         RibbonCalculator ribbonCalculator = new RibbonCalculator();
